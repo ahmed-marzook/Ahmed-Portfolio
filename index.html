@@ -1,45 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title></title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-    <title>Ahmed Portfolio</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Software Engineer Portfolio</title>
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --text-color: #1f2937;
+        --bg-color: #ffffff;
+        --section-bg: #f3f4f6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: var(--bg-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--bg-color);
+        padding: 2rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 6rem 0;
+        text-align: center;
+        background-color: var(--section-bg);
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: #4b5563;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about {
+        padding: 6rem 0;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-image {
+        width: 100%;
+        height: 400px;
+        background-color: #e5e7eb;
+        border-radius: 8px;
+      }
+
+      /* Projects Section */
+      .projects {
+        padding: 6rem 0;
+        background-color: var(--section-bg);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: var(--bg-color);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        background-color: #e5e7eb;
+      }
+
+      .project-content {
+        padding: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-description {
+        color: #4b5563;
+        margin-bottom: 1rem;
+      }
+
+      .project-tags {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .tag {
+        background-color: #e5e7eb;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        color: var(--text-color);
+      }
+
+      /* Skills Section */
+      .skills {
+        padding: 6rem 0;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-category {
+        text-align: center;
+      }
+
+      .skill-category h3 {
+        margin-bottom: 1rem;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 6rem 0;
+        background-color: var(--section-bg);
+      }
+
+      .contact-content {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .contact-link {
+        text-decoration: none;
+        color: var(--primary-color);
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .contact-link:hover {
+        color: var(--secondary-color);
+      }
+
+      /* Footer */
+      footer {
+        padding: 2rem 0;
+        text-align: center;
+        background-color: var(--text-color);
+        color: var(--bg-color);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <h1>Ahmed Portfolio</h1>
-    <p>
-      Hello welcome to my website showcasing my current Software portfolio and I
-      will be expanding upon this in the future.
-    </p>
-    <h2>My Projects</h2>
-    <h3><a href="./public/movie-ranking.html">Movie Ranking Project</a></h3>
-    <p>Simple HTML project showcasing using list in HTML</p>
-    <details>
-      <summary>Preview</summary>
-      <img
-      src="./assets/images/movie-ranking.png"
-      height="300"
-      alt="Movie Ranking Project Preview"
-    />
-    </details>
-    <h3><a href="./public/birthday-invite.html">Birthday Invite Project</a></h3>
-    <p>Project to shwcase using anchors in HTML</p>
-    <details>
-      <summary>Preview</summary>
-      <img
-      src="./assets/images/birthday-invite.png"
-      height="300"
-      alt="Birthday invite Project Preview"
-    />
-    </details>
+    <header>
+      <nav class="container">
+        <div class="logo">Ahmed Marzook</div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Software Developer</h1>
+        <p>
+          Experienced developer with 6+ years in enterprise-level SaaS
+          applications, specializing in Java and Spring Framework
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-image"></div>
+          <div class="about-text">
+            <p>
+              Experienced Software Developer with 5+ years in developing and
+              maintaining enterprise-level SaaS applications. Proficient in Java
+              (versions 8 to 21) and Spring Framework, with a strong background
+              in both legacy system upgrades and greenfield microservice
+              development.
+            </p>
+            <p>
+              Proficient in implementing CI/CD pipelines, working with cloud
+              platforms (AWS, Azure), and utilizing Agile methodologies.
+              Demonstrated leadership through mentoring colleagues and
+              conducting knowledge-sharing sessions on best practices.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-content">
+              <h3 class="project-title">Java Services Modernization</h3>
+              <p class="project-description">
+                Upgraded enterprise services from Java 8 to Java 21 with latest
+                Spring framework implementation
+              </p>
+              <div class="project-tags">
+                <span class="tag">Java 21</span>
+                <span class="tag">Spring</span>
+                <span class="tag">AWS</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-content">
+              <h3 class="project-title">AWS Infrastructure Development</h3>
+              <p class="project-description">
+                Deployed AWS services including SQS queues and event buses using
+                Infrastructure as Code with Terraform
+              </p>
+              <div class="project-tags">
+                <span class="tag">AWS</span>
+                <span class="tag">Terraform</span>
+                <span class="tag">IaC</span>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-content">
+              <h3 class="project-title">Enterprise Software Development</h3>
+              <p class="project-description">
+                Developed and maintained web enterprise applications for
+                government clients using Java and Spring Framework
+              </p>
+              <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring</span>
+                <span class="tag">CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3>Core Skills</h3>
+            <div class="skill-list">
+              <span>Java 8, 11, 17, 21</span>
+              <span>Spring Framework</span>
+              <span>REST API</span>
+              <span>SQL</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Cloud & DevOps</h3>
+            <div class="skill-list">
+              <span>AWS</span>
+              <span>Azure</span>
+              <span>Docker</span>
+              <span>Terraform</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Tools & Others</h3>
+            <div class="skill-list">
+              <span>Git (BitBucket & GitLab)</span>
+              <span>Playwright</span>
+              <span>Python</span>
+              <span>JavaScript</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <div class="contact-content">
+          <p>
+            I'm always interested in hearing about new projects and
+            opportunities.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:m4marzook@gmail.com" class="contact-link">Email</a>
+            <a href="https://github.com/ahmed-marzook" class="contact-link"
+              >GitHub</a
+            >
+            <a
+              href="https://www.linkedin.com/in/ahmed-marzook-595009188/"
+              class="contact-link"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2025 Ahmed Marzook. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
-  <hr />
-  <footer>
-    <a href="./public/about.html">About Me</a>
-    <a href="./public/contact.html">Contact Me</a>
-  </footer>
 </html>
