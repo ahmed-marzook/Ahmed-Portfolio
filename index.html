@@ -172,9 +172,16 @@
       }
 
       .project-image {
-        width: 100%;
-        padding-top: 56.25%; /* 16:9 Aspect Ratio */
         background-color: #e5e7eb;
+      }
+
+      .image-wrapper {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        max-height: 400px;
+        width: 100%;
+        overflow: hidden;
       }
 
       .project-content {
@@ -406,50 +413,97 @@
         <h2 class="section-title">Featured Projects</h2>
         <div class="projects-grid">
           <div class="project-card">
-            <div class="project-image"></div>
+            <div class="image-wrapper"><img src="./assets/images/lastlang.png" class="project-image"></img></div>
             <div class="project-content">
-              <h3 class="project-title">Java Services Modernization</h3>
+              <h3 class="project-title">The Last High-Level Language</h3>
               <p class="project-description">
-                Upgraded enterprise services from Java 8 to Java 21 with latest
-                Spring framework implementation
+                A dystopian Hangman game where each failed guess eliminates a programming language, pushing humanity closer to an Assembly-only future. Features 8 programming language eliminations, themed word bank, and interactive keyboard interface.
               </p>
               <div class="project-tags">
-                <span class="tag">Java 21</span>
-                <span class="tag">Spring</span>
-                <span class="tag">AWS</span>
+                <span class="tag">React</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Vite</span>
+                <span class="tag">npm</span>
               </div>
             </div>
           </div>
           <div class="project-card">
-            <div class="project-image"></div>
+            <div class="image-wrapper"><img src="./assets/images/tenzies.png" class="project-image"></img></div>
             <div class="project-content">
-              <h3 class="project-title">AWS Infrastructure Development</h3>
+              <h3 class="project-title">Tenzies Game</h3>
               <p class="project-description">
-                Deployed AWS services including SQS queues and event buses using
-                Infrastructure as Code with Terraform
+                A fast-paced dice game where players roll until all dice match. Features real-time scoring, game timer, celebrations, and responsive design. The perfect project for practicing React state management and hooks.
               </p>
               <div class="project-tags">
-                <span class="tag">AWS</span>
-                <span class="tag">Terraform</span>
-                <span class="tag">IaC</span>
+                <span class="tag">React</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Vite</span>
+                <span class="tag">npm</span>
               </div>
             </div>
-          </div>
-          <div class="project-card">
+           </div>
+           <div class="project-card">
             <div class="project-image"></div>
             <div class="project-content">
-              <h3 class="project-title">Enterprise Software Development</h3>
+              <h3 class="project-title">WeatherBridge API</h3>
               <p class="project-description">
-                Developed and maintained web enterprise applications for
-                government clients using Java and Spring Framework
+                A Spring Boot weather API service integrating Visual Crossing with Redis caching. Features real-time weather data access, clean architecture, and full CI/CD pipeline with AWS infrastructure managed via Terraform.
               </p>
               <div class="project-tags">
                 <span class="tag">Java</span>
-                <span class="tag">Spring</span>
-                <span class="tag">CI/CD</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">Redis</span>
+                <span class="tag">AWS</span>
+                <span class="tag">React</span>
+                <span class="tag">Terraform</span>
               </div>
             </div>
-          </div>
+           </div>
+           <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-content">
+              <h3 class="project-title">HabitPact</h3>
+              <p class="project-description">
+                A habit tracking platform with social accountability features, including habit creation, progress tracking, and friend partnerships. Built with Spring Boot, MongoDB, and React, featuring JWT authentication and comprehensive API testing.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+           </div>
+           <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-content">
+              <h3 class="project-title">Tech Tales</h3>
+              <p class="project-description">
+                A modern blogging platform with full-featured article management system. Built with Spring Boot and React, featuring author profiles, pagination, sanitized content handling, and comprehensive test coverage.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+           </div>
+           <div class="project-card">
+            <div class="project-image"></div>
+            <div class="project-content">
+              <h3 class="project-title">DayMapper</h3>
+              <p class="project-description">
+                A task management platform built with Spring Boot and React, featuring user authentication, task tracking, real-time status updates, and PostgreSQL data persistence. Includes comprehensive test coverage and API documentation.
+              </p>
+              <div class="project-tags">
+                <span class="tag">Java</span>
+                <span class="tag">Spring Boot</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+           </div>
         </div>
       </div>
     </section>
@@ -494,8 +548,7 @@
         <h2 class="section-title">Get in Touch</h2>
         <div class="contact-content">
           <p>
-            I'm always interested in hearing about new projects and
-            opportunities.
+            I'm curious to learn what excites you - tell me about your passions and what you're working on!
           </p>
           <div class="contact-links">
             <a href="mailto:m4marzook@gmail.com" class="contact-link">Email</a>
