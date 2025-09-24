@@ -38,14 +38,14 @@
       <section class="hero">
         <div class="container">
           <div class="hero-content">
-            <div class="hero-text">
+            <div class="hero-text" data-reveal>
               <span class="hero-eyebrow">Full-stack software engineer</span>
               <h1>Ahmed Marzook Portfolio</h1>
               <p>
                 Curious individual, always seeking to build, learn, and explore
                 new ideas.
               </p>
-              <div class="hero-actions">
+              <div class="hero-actions" data-reveal style="--reveal-delay: 0.05s">
                 <a href="#projects" class="btn btn-primary"
                   >View featured work</a
                 >
@@ -54,15 +54,15 @@
                 >
               </div>
               <div class="hero-stats">
-                <div class="stat">
+                <div class="stat" data-reveal style="--reveal-delay: 0.1s">
                   <span class="stat-value">6+</span>
                   <span class="stat-label">Years shipping enterprise SaaS</span>
                 </div>
-                <div class="stat">
+                <div class="stat" data-reveal style="--reveal-delay: 0.15s">
                   <span class="stat-value">10+</span>
                   <span class="stat-label">Cloud-native services launched</span>
                 </div>
-                <div class="stat">
+                <div class="stat" data-reveal style="--reveal-delay: 0.2s">
                   <span class="stat-value">Mentor</span>
                   <span class="stat-label"
                     >Coaching teams on clean delivery</span
@@ -70,7 +70,7 @@
                 </div>
               </div>
             </div>
-            <div class="hero-visual">
+            <div class="hero-visual" data-reveal="zoom" style="--reveal-delay: 0.15s">
               <div class="hero-profile">
                 <img
                   src="./assets/images/me.png"
@@ -84,9 +84,9 @@
 
       <section id="about" class="about">
         <div class="container">
-          <h2 class="section-title">About Me</h2>
+          <h2 class="section-title" data-reveal>About Me</h2>
           <div class="about-content">
-            <div class="about-visual">
+            <div class="about-visual" data-reveal="left">
               <img
                 src="./assets/images/me.png"
                 alt="Ahmed smiling"
@@ -97,7 +97,7 @@
                 architecture, and the people who make both possible.
               </div>
             </div>
-            <div class="about-text">
+            <div class="about-text" data-reveal style="--reveal-delay: 0.1s">
               <p>
                 Experienced software developer with
                 <strong>6+ years</strong> building and scaling enterprise SaaS
@@ -119,21 +119,21 @@
                 <span class="pill">Developer Experience</span>
               </div>
               <div class="about-highlights">
-                <div class="highlight-card">
+                <div class="highlight-card" data-reveal style="--reveal-delay: 0.05s">
                   <h3>Platform Modernization</h3>
                   <p>
                     Transforming legacy monoliths into secure, observable, and
                     scalable service architectures.
                   </p>
                 </div>
-                <div class="highlight-card">
+                <div class="highlight-card" data-reveal style="--reveal-delay: 0.1s">
                   <h3>Automation at Scale</h3>
                   <p>
                     Designing CI/CD pipelines, cloud infrastructure, and
                     guardrails that keep delivery moving fast.
                   </p>
                 </div>
-                <div class="highlight-card">
+                <div class="highlight-card" data-reveal style="--reveal-delay: 0.15s">
                   <h3>People & Culture</h3>
                   <p>
                     Leading squads, mentoring developers, and energizing teams
@@ -148,9 +148,9 @@
 
       <section id="projects" class="projects">
         <div class="container">
-          <h2 class="section-title">Featured Projects</h2>
+          <h2 class="section-title" data-reveal>Featured Projects</h2>
           <div class="projects-grid">
-            <div class="project-card">
+            <div class="project-card" data-reveal>
               <div class="project-media">
                 <img
                   src="./assets/images/birth-your-way.png"
@@ -224,7 +224,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal="right" style="--reveal-delay: 0.05s">
               <div class="project-media">
                 <img
                   src="./assets/images/lastlang.png"
@@ -296,7 +296,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal style="--reveal-delay: 0.1s">
               <div class="project-media">
                 <img
                   src="./assets/images/tenzies.png"
@@ -368,7 +368,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal="right" style="--reveal-delay: 0.15s">
               <div class="project-media">
                 <img
                   src="./assets/images/weather-bridge.jpg"
@@ -451,7 +451,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal style="--reveal-delay: 0.2s">
               <div class="project-media">
                 <img
                   src="https://placehold.co/600x400/0f172a/ffffff?text=HabitPact"
@@ -516,7 +516,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal="right" style="--reveal-delay: 0.25s">
               <div class="project-media">
                 <img
                   src="https://placehold.co/600x400/312e81/ffffff?text=Tech+Tales"
@@ -581,7 +581,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal style="--reveal-delay: 0.3s">
               <div class="project-media">
                 <img
                   src="https://placehold.co/600x400/164e63/ffffff?text=DayMapper"
@@ -646,7 +646,7 @@
               </div>
             </div>
 
-            <div class="project-card">
+            <div class="project-card" data-reveal="right" style="--reveal-delay: 0.35s">
               <div class="project-media">
                 <img
                   src="https://placehold.co/600x400/0b1120/ffffff?text=DoItNow"
@@ -699,17 +699,22 @@
 
       <section id="skills" class="skills">
         <div class="container">
-          <h2 class="section-title">Skills</h2>
-          <p class="skills-intro">
+          <h2 class="section-title" data-reveal>Skills</h2>
+          <p class="skills-intro" data-reveal style="--reveal-delay: 0.05s">
             A toolbox shaped by enterprise product delivery: scalable backend
             services, resilient infrastructure, and immersive interfaces that
             prioritize user outcomes. Here are the platforms and frameworks I
             lean on daily.
           </p>
-          <div class="tech-stack-showcase" aria-label="Core technology stack">
+          <div
+            class="tech-stack-showcase"
+            aria-label="Core technology stack"
+            data-reveal
+            style="--reveal-delay: 0.1s"
+          >
             <h3 class="tech-stack-title">Daily Drivers</h3>
             <div class="tech-icon-grid">
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.12s">
                 <img
                   src="./assets/images/tech-stack-icons/Java.svg"
                   alt="Java logo"
@@ -717,7 +722,7 @@
                 />
                 <figcaption>Java</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.17s">
                 <img
                   src="./assets/images/tech-stack-icons/Spring.svg"
                   alt="Spring Framework logo"
@@ -725,7 +730,7 @@
                 />
                 <figcaption>Spring</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.22s">
                 <img
                   src="./assets/images/tech-stack-icons/React.svg"
                   alt="React logo"
@@ -733,7 +738,7 @@
                 />
                 <figcaption>React</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.27s">
                 <img
                   src="./assets/images/tech-stack-icons/TypeScript.svg"
                   alt="TypeScript logo"
@@ -741,7 +746,7 @@
                 />
                 <figcaption>TypeScript</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.32s">
                 <img
                   src="./assets/images/tech-stack-icons/Node.js.svg"
                   alt="Node.js logo"
@@ -749,7 +754,7 @@
                 />
                 <figcaption>Node.js</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.37s">
                 <img
                   src="./assets/images/tech-stack-icons/Python.svg"
                   alt="Python logo"
@@ -757,7 +762,7 @@
                 />
                 <figcaption>Python</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.42s">
                 <img
                   src="./assets/images/tech-stack-icons/Docker.svg"
                   alt="Docker logo"
@@ -765,7 +770,7 @@
                 />
                 <figcaption>Docker</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.47s">
                 <img
                   src="./assets/images/tech-stack-icons/AWS.svg"
                   alt="AWS logo"
@@ -773,7 +778,7 @@
                 />
                 <figcaption>AWS</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.52s">
                 <img
                   src="./assets/images/tech-stack-icons/HashiCorp-Terraform.svg"
                   alt="Terraform logo"
@@ -781,7 +786,7 @@
                 />
                 <figcaption>Terraform</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.57s">
                 <img
                   src="./assets/images/tech-stack-icons/PostgresSQL.svg"
                   alt="PostgreSQL logo"
@@ -789,7 +794,7 @@
                 />
                 <figcaption>PostgreSQL</figcaption>
               </figure>
-              <figure class="tech-icon-card">
+              <figure class="tech-icon-card" data-reveal style="--reveal-delay: 0.62s">
                 <img
                   src="./assets/images/tech-stack-icons/MongoDB.svg"
                   alt="MongoDB logo"
@@ -800,7 +805,7 @@
             </div>
           </div>
           <div class="skills-grid">
-            <div class="skill-category">
+            <div class="skill-category" data-reveal style="--reveal-delay: 0.15s">
               <h3>Core Engineering</h3>
               <div class="skill-list">
                 <span>Java 8, 11, 17, 21</span>
@@ -809,7 +814,7 @@
                 <span>SQL & relational modelling</span>
               </div>
             </div>
-            <div class="skill-category">
+            <div class="skill-category" data-reveal style="--reveal-delay: 0.2s">
               <h3>Cloud & DevOps</h3>
               <div class="skill-list">
                 <span>AWS & Azure architecture</span>
@@ -818,7 +823,7 @@
                 <span>CI/CD pipelines & observability</span>
               </div>
             </div>
-            <div class="skill-category">
+            <div class="skill-category" data-reveal style="--reveal-delay: 0.25s">
               <h3>Experience & Tooling</h3>
               <div class="skill-list">
                 <span>React, TypeScript & modern JS</span>
@@ -833,14 +838,14 @@
 
       <section id="contact" class="contact">
         <div class="container">
-          <div class="contact-content">
+          <div class="contact-content" data-reveal>
             <h2 class="section-title">Let's build something remarkable</h2>
-            <p>
+            <p data-reveal style="--reveal-delay: 0.05s">
               I'm always excited to collaborate on resilient platforms,
               thoughtful product experiences, and initiatives that help teams
               ship with confidence. Tell me about what you're building.
             </p>
-            <div class="contact-links">
+            <div class="contact-links" data-reveal style="--reveal-delay: 0.1s">
               <a href="mailto:m4marzook@gmail.com" class="contact-link"
                 >Email</a
               >
