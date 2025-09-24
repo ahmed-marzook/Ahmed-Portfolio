@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const initRevealAnimations = () => {
-    const revealElements = document.querySelectorAll('[data-reveal]');
+    const revealElements = Array.from(document.querySelectorAll('[data-reveal]'));
 
     if (!revealElements.length) {
       return;
@@ -10,37 +10,110 @@ document.addEventListener('DOMContentLoaded', () => {
       '(prefers-reduced-motion: reduce)'
     );
 
+    const pendingElements = new Set(revealElements);
+
     const showElement = element => {
       element.classList.add('reveal-visible');
+      pendingElements.delete(element);
     };
 
-    if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
-      revealElements.forEach(showElement);
+    let observer;
+    let scrollRafId = null;
+
+    const runVisibilityCheck = () => {
+      scrollRafId = null;
+
+      if (!pendingElements.size) {
+        cleanup();
+        return;
+      }
+
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight || 0;
+      const activationPoint = viewportHeight * 0.85;
+      const topBoundary = viewportHeight * 0.05;
+
+      pendingElements.forEach(element => {
+        const rect = element.getBoundingClientRect();
+
+        if (rect.top <= activationPoint && rect.bottom >= topBoundary) {
+          showElement(element);
+          if (observer) {
+            observer.unobserve(element);
+          }
+        }
+      });
+
+      if (!pendingElements.size) {
+        cleanup();
+      }
+    };
+
+    const scheduleVisibilityCheck = () => {
+      if (scrollRafId !== null) {
+        return;
+      }
+
+      scrollRafId = window.requestAnimationFrame(runVisibilityCheck);
+    };
+
+    const cleanup = () => {
+      if (scrollRafId !== null) {
+        window.cancelAnimationFrame(scrollRafId);
+        scrollRafId = null;
+      }
+
+      window.removeEventListener('scroll', scheduleVisibilityCheck);
+      window.removeEventListener('resize', scheduleVisibilityCheck);
+
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+
+    const showAll = () => {
+      Array.from(pendingElements).forEach(showElement);
+      cleanup();
+    };
+
+    if (prefersReducedMotion.matches) {
+      showAll();
       return;
     }
 
-    const observer = new IntersectionObserver(
-      (entries, entryObserver) => {
-        entries.forEach(entry => {
-          if (!entry.isIntersecting) {
-            return;
+    if ('IntersectionObserver' in window) {
+      observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              showElement(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+
+          if (!pendingElements.size) {
+            cleanup();
           }
+        },
+        {
+          rootMargin: '0px 0px -12% 0px',
+          threshold: 0.2,
+        }
+      );
 
-          showElement(entry.target);
-          entryObserver.unobserve(entry.target);
-        });
-      },
-      {
-        rootMargin: '0px 0px -10% 0px',
-        threshold: 0.15,
-      }
-    );
+      pendingElements.forEach(element => observer.observe(element));
+    }
 
-    revealElements.forEach(element => observer.observe(element));
+    window.addEventListener('scroll', scheduleVisibilityCheck, {
+      passive: true,
+    });
+    window.addEventListener('resize', scheduleVisibilityCheck);
+
+    scheduleVisibilityCheck();
 
     const handleMotionPreferenceChange = event => {
       if (event.matches) {
-        revealElements.forEach(showElement);
+        showAll();
       }
     };
 
