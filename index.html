@@ -3,618 +3,563 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software Engineer Portfolio</title>
-    <style>
-      :root {
-        --primary-color: #2563eb;
-        --secondary-color: #1e40af;
-        --text-color: #1f2937;
-        --bg-color: #ffffff;
-        --section-bg: #f3f4f6;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--bg-color);
-        overflow-x: hidden;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-
-      /* Header Styles */
-      header {
-        background-color: var(--bg-color);
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-      }
-
-      .logo {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: var(--primary-color);
-      }
-
-      .menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
-        padding: 4px;
-      }
-
-      .menu-toggle span {
-        width: 24px;
-        height: 2px;
-        background-color: var(--text-color);
-        transition: all 0.3s ease;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        transition: color 0.3s ease;
-        font-size: 1rem;
-      }
-
-      .nav-links a:hover {
-        color: var(--primary-color);
-      }
-
-      /* Hero Section */
-      .hero {
-        padding: 4rem 0;
-        text-align: center;
-        background-color: var(--section-bg);
-      }
-
-      .hero h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        margin-bottom: 1rem;
-        color: var(--text-color);
-      }
-
-      .hero p {
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        color: #4b5563;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-
-      /* About Section */
-      .about {
-        padding: 4rem 0;
-      }
-
-      .section-title {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-        margin-bottom: 2rem;
-        text-align: center;
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .about-image {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        background-color: #e5e7eb;
-        border-radius: 8px;
-        margin: 0 auto;
-      }
-
-      .about-text {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      /* Projects Section */
-      .projects {
-        padding: 4rem 0;
-        background-color: var(--section-bg);
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .project-card {
-        background-color: var(--bg-color);
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        height: 100%;
-      }
-
-      .project-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .project-image {
-        background-color: #e5e7eb;
-      }
-
-      .image-wrapper {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        max-height: 400px;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      .project-content {
-        padding: 1.25rem;
-      }
-
-      .project-title {
-        font-size: 1.125rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .project-description {
-        color: #4b5563;
-        margin-bottom: 1rem;
-        font-size: 0.875rem;
-      }
-
-      .project-tags {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .tag {
-        background-color: #e5e7eb;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        color: var(--text-color);
-      }
-
-      /* Skills Section */
-      .skills {
-        padding: 4rem 0;
-      }
-
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-
-      .skill-category {
-        text-align: center;
-        padding: 1rem;
-        background-color: var(--bg-color);
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .skill-category h3 {
-        margin-bottom: 1rem;
-        font-size: 1.125rem;
-      }
-
-      .skill-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .skill-list span {
-        font-size: 0.875rem;
-      }
-
-      /* Contact Section */
-      .contact {
-        padding: 4rem 0;
-        background-color: var(--section-bg);
-      }
-
-      .contact-content {
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 0 1rem;
-      }
-
-      .contact-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-        flex-wrap: wrap;
-      }
-
-      .contact-link {
-        text-decoration: none;
-        color: var(--primary-color);
-        font-weight: 500;
-        transition: color 0.3s ease;
-        font-size: 0.875rem;
-        padding: 0.5rem 1rem;
-        border: 1px solid var(--primary-color);
-        border-radius: 4px;
-      }
-
-      .contact-link:hover {
-        color: var(--bg-color);
-        background-color: var(--primary-color);
-      }
-
-      /* Footer */
-      footer {
-        padding: 1.5rem 0;
-        text-align: center;
-        background-color: var(--text-color);
-        color: var(--bg-color);
-      }
-
-      footer p {
-        font-size: 0.875rem;
-      }
-
-      /* Mobile Navigation */
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: flex;
-        }
-
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          flex-direction: column;
-          background-color: var(--bg-color);
-          padding: 1rem;
-          gap: 1rem;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links.active {
-          display: flex;
-        }
-
-        .nav-links a {
-          padding: 0.5rem 0;
-          border-bottom: 1px solid #e5e7eb;
-          width: 100%;
-          text-align: center;
-        }
-
-        .nav-links a:last-child {
-          border-bottom: none;
-        }
-
-        .about-content {
-          gap: 2rem;
-        }
-
-        .about-image {
-          height: 300px;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .skills-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* Larger Screen Optimizations */
-      @media (min-width: 1024px) {
-        .about-content {
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
-        }
-
-        .projects-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-    </style>
+    <meta
+      name="description"
+      content="Portfolio site for Ahmed Marzook – full-stack software engineer and tech lead helping teams modernize platforms and launch thoughtful products."
+    />
+    <title>Ahmed Marzook | Software Engineer & Tech Lead</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header>
-      <nav class="container">
-        <div class="logo">Ahmed Marzook</div>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+    <header class="site-header">
+      <nav class="nav container">
+        <a class="nav__brand" href="#top" aria-label="Ahmed Marzook home">
+          <span class="nav__mark">AM</span>
+          <span class="nav__name">Ahmed Marzook</span>
+        </a>
+        <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="nav__links" role="menu">
+          <a href="#about" role="menuitem">About</a>
+          <a href="#projects" role="menuitem">Projects</a>
+          <a href="#skills" role="menuitem">Skills</a>
+          <a href="#contact" role="menuitem" class="nav__cta">Let's collaborate</a>
         </div>
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="container">
-        <h1>Software Developer</h1>
-        <p>
-          Experienced developer with 6+ years in enterprise-level SaaS
-          applications, specializing in Java and Spring Framework
-        </p>
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <img src="./assets/images/me.png" class="about-image" alt="Picture of Ahmed Marzook"></img>
-          <div class="about-text">
-            <p>
-              Experienced Software Developer with 6+ years in developing and
-              maintaining enterprise-level SaaS applications. Proficient in Java
-              (versions 8 to 21) and Spring Framework, with a strong background
-              in both legacy system upgrades and greenfield microservice
-              development.
+    <main>
+      <section class="hero" id="top">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <p class="eyebrow">Full-stack software engineer &amp; tech lead</p>
+            <h1>Ship calm, resilient software without losing speed</h1>
+            <p class="lead">
+              I partner with product teams to modernize Java/Spring platforms, build cloud-native services, and craft intuitive
+              web &amp; mobile experiences that customers trust.
             </p>
+            <div class="hero__actions">
+              <a href="#projects" class="btn btn--primary">Explore projects</a>
+              <a href="#contact" class="btn btn--ghost">Book a strategy call</a>
+            </div>
+            <ul class="hero__stats">
+              <li class="hero-stat">
+                <span class="hero-stat__value">6+ yrs</span>
+                <span class="hero-stat__label">Leading engineering initiatives</span>
+              </li>
+              <li class="hero-stat">
+                <span class="hero-stat__value">10+ launches</span>
+                <span class="hero-stat__label">Cloud-native services shipped</span>
+              </li>
+              <li class="hero-stat">
+                <span class="hero-stat__value">Mentor</span>
+                <span class="hero-stat__label">Coaching teams on clean delivery</span>
+              </li>
+            </ul>
+            <div class="hero__availability">
+              <span class="status-dot" aria-hidden="true"></span>
+              <p>Now partnering with teams on modernization &amp; 0&rarr;1 product builds.</p>
+            </div>
+          </div>
+          <div class="hero__media">
+            <div class="hero__portrait">
+              <img src="./assets/images/me.png" alt="Portrait of Ahmed Marzook" />
+            </div>
+            <div class="hero__card">
+              <h3>Currently tackling</h3>
+              <p>
+                Guiding fintech squads through event-driven migrations with humane developer tooling and feedback loops that keep
+                releases predictable.
+              </p>
+              <div class="hero__stack">
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/java.svg" alt="Java icon" loading="lazy" />
+                  <span>Java</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/spring.svg" alt="Spring icon" loading="lazy" />
+                  <span>Spring Boot</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                  <span>React</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container">
+          <div class="section__header">
+            <p class="eyebrow">About</p>
+            <h2>Architecture, delivery, and developer experience under one roof</h2>
             <p>
-              Proficient in implementing CI/CD pipelines, working with cloud
-              platforms (AWS, Azure), and utilizing Agile methodologies.
-              Demonstrated leadership through mentoring colleagues and
-              conducting knowledge-sharing sessions on best practices.
+              I bring calm focus to messy modernisation projects. From legacy refactors to greenfield product launches, I help
+              teams design scalable foundations, ship iteratively, and keep the developer experience joyful.
             </p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="image-wrapper"><img src="./assets/images/lastlang.png" class="project-image"></img></div>
-            <div class="project-content">
-              <h3 class="project-title">The Last High-Level Language</h3>
-              <p class="project-description">
-                A dystopian Hangman game where each failed guess eliminates a programming language, pushing humanity closer to an Assembly-only future. Features 8 programming language eliminations, themed word bank, and interactive keyboard interface.
+          <div class="about__grid">
+            <div class="about__bio">
+              <p>
+                My background spans enterprise SaaS, fintech, and B2C apps. I thrive when partnering with cross-functional teams
+                to clarify outcomes, slice work intentionally, and automate the path to production.
               </p>
-              <div class="project-tags">
-                <span class="tag">React</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Vite</span>
-                <span class="tag">npm</span>
-              </div>
-            </div>
-          </div>
-          <div class="project-card">
-            <div class="image-wrapper"><img src="./assets/images/tenzies.png" class="project-image"></img></div>
-            <div class="project-content">
-              <h3 class="project-title">Tenzies Game</h3>
-              <p class="project-description">
-                A fast-paced dice game where players roll until all dice match. Features real-time scoring, game timer, celebrations, and responsive design. The perfect project for practicing React state management and hooks.
+              <p>
+                Whether I'm debugging JVM performance, shaping APIs alongside designers, or coaching teams through CI/CD uplift,
+                the goal stays the same: deliver reliable software with empathy for the people building and using it.
               </p>
-              <div class="project-tags">
-                <span class="tag">React</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Vite</span>
-                <span class="tag">npm</span>
-              </div>
+              <ul class="about__list">
+                <li><strong>Architecture:</strong> Microservices, event-driven systems, pragmatic domain modelling.</li>
+                <li><strong>Enablement:</strong> Pairing, mentoring, and tooling that unlock developer velocity.</li>
+                <li><strong>Discovery:</strong> Product thinking grounded in customer research and measurable outcomes.</li>
+              </ul>
             </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">WeatherBridge API</h3>
-              <p class="project-description">
-                A Spring Boot weather API service integrating Visual Crossing with Redis caching. Features real-time weather data access, clean architecture, and full CI/CD pipeline with AWS infrastructure managed via Terraform.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">Redis</span>
-                <span class="tag">AWS</span>
-                <span class="tag">React</span>
-                <span class="tag">Terraform</span>
-              </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">HabitPact</h3>
-              <p class="project-description">
-                A habit tracking platform with social accountability features, including habit creation, progress tracking, and friend partnerships. Built with Spring Boot, MongoDB, and React, featuring JWT authentication and comprehensive API testing.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">MongoDB</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">Tech Tales</h3>
-              <p class="project-description">
-                A modern blogging platform with full-featured article management system. Built with Spring Boot and React, featuring author profiles, pagination, sanitized content handling, and comprehensive test coverage.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">DayMapper</h3>
-              <p class="project-description">
-                A task management platform built with Spring Boot and React, featuring user authentication, task tracking, real-time status updates, and PostgreSQL data persistence. Includes comprehensive test coverage and API documentation.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
-           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Core Skills</h3>
-            <div class="skill-list">
-              <span>Java 8, 11, 17, 21</span>
-              <span>Spring Framework</span>
-              <span>REST API</span>
-              <span>SQL</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Cloud & DevOps</h3>
-            <div class="skill-list">
-              <span>AWS</span>
-              <span>Azure</span>
-              <span>Docker</span>
-              <span>Terraform</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Tools & Others</h3>
-            <div class="skill-list">
-              <span>Git (BitBucket & GitLab)</span>
-              <span>Playwright</span>
-              <span>Python</span>
-              <span>JavaScript</span>
+            <div class="about__aside">
+              <article class="about-card">
+                <h3>How I engage</h3>
+                <ul>
+                  <li>Facilitate discovery and alignment workshops to map the real problem.</li>
+                  <li>Co-design architecture and delivery rails that balance speed with safety.</li>
+                  <li>Embed with teams to uplift coding standards, automation, and observability.</li>
+                </ul>
+              </article>
+              <article class="about-card about-card--accent">
+                <h3>Highlights</h3>
+                <p>Modernized monolithic platforms, launched new SaaS offerings, and coached engineers into tech lead roles.</p>
+                <div class="about-card__tags">
+                  <span>System design</span>
+                  <span>Developer Experience</span>
+                  <span>Cloud Infrastructure</span>
+                </div>
+              </article>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-content">
-          <p>
-            I'm curious to learn what excites you - tell me about your passions and what you're working on!
-          </p>
-          <div class="contact-links">
-            <a href="mailto:m4marzook@gmail.com" class="contact-link">Email</a>
-            <a href="https://github.com/ahmed-marzook" class="contact-link"
-              >GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/ahmed-marzook-595009188/"
-              class="contact-link"
-              >LinkedIn</a
-            >
+      <section id="projects" class="section projects">
+        <div class="container">
+          <div class="section__header">
+            <p class="eyebrow">Featured work</p>
+            <h2>Recent projects that blend strategy, delivery, and craft</h2>
+            <p>
+              A sampling of products and platforms I've engineered &mdash; from B2C experiences to complex backend services, all
+              designed to move business outcomes forward.
+            </p>
+          </div>
+          <div class="projects__grid">
+            <article class="project-card">
+              <div class="project-card__media">
+                <img
+                  src="https://placehold.co/640x400/4f46e5/ffffff?text=Birth+Your+Way"
+                  alt="Birth Your Way birth plan generator placeholder"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3>Birth Your Way</h3>
+                <p>
+                  A personalized birth plan generator that empowers families with evidence-backed guidance. Dynamic questionnaires
+                  tailor recommendations, while shareable plans keep birth partners aligned.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/nextjs.svg" alt="Next.js icon" loading="lazy" />
+                    <span>Next.js</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/typescript.svg" alt="TypeScript icon" loading="lazy" />
+                    <span>TypeScript</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/tailwindcss.svg" alt="Tailwind CSS icon" loading="lazy" />
+                    <span>Tailwind</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/contentful.svg" alt="Contentful icon" loading="lazy" />
+                    <span>Contentful</span>
+                  </span>
+                </div>
+                <div class="project-card__links">
+                  <a href="https://www.birthplan.co.uk" class="project-link" target="_blank" rel="noopener noreferrer">Visit site</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img
+                  src="https://placehold.co/640x400/0b1120/ffffff?text=DoItNow"
+                  alt="DoItNow React Native to-do app placeholder"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3>DoItNow</h3>
+                <p>
+                  A React Native productivity app designed for fast, offline-friendly task capture. Includes gesture-driven task
+                  triage, calendar sync, and focus modes for deep work sprints.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                    <span>React Native</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/expo.svg" alt="Expo icon" loading="lazy" />
+                    <span>Expo</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/typescript.svg" alt="TypeScript icon" loading="lazy" />
+                    <span>TypeScript</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/firebase.svg" alt="Firebase icon" loading="lazy" />
+                    <span>Firebase</span>
+                  </span>
+                </div>
+                <div class="project-card__links">
+                  <a
+                    href="https://github.com/ahmed-marzook/DoItNow"
+                    class="project-link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >View repository</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img
+                  src="https://placehold.co/640x400/111827/ffffff?text=WeatherBridge+API"
+                  alt="WeatherBridge API dashboard placeholder"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3>WeatherBridge API</h3>
+                <p>
+                  A Spring Boot service that aggregates weather providers with Redis caching to deliver fast, reliable forecasts.
+                  Infrastructure is automated with Terraform and observability baked in.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/java.svg" alt="Java icon" loading="lazy" />
+                    <span>Java</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/spring.svg" alt="Spring icon" loading="lazy" />
+                    <span>Spring Boot</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/redis.svg" alt="Redis icon" loading="lazy" />
+                    <span>Redis</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/aws.svg" alt="AWS icon" loading="lazy" />
+                    <span>AWS</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/terraform.svg" alt="Terraform icon" loading="lazy" />
+                    <span>Terraform</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img src="./assets/images/lastlang.png" alt="Screenshot from The Last High-Level Language game" loading="lazy" />
+              </div>
+              <div class="project-card__body">
+                <h3>The Last High-Level Language</h3>
+                <p>
+                  A dystopian spin on Hangman &mdash; each wrong guess wipes out a programming language. Includes an interactive
+                  keyboard, lore snippets, and playful animations to keep players engaged.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                    <span>React</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/typescript.svg" alt="TypeScript icon" loading="lazy" />
+                    <span>TypeScript</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/vite.svg" alt="Vite icon" loading="lazy" />
+                    <span>Vite</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img
+                  src="https://placehold.co/640x400/164e63/ffffff?text=DayMapper"
+                  alt="DayMapper task board placeholder"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3>DayMapper</h3>
+                <p>
+                  A collaborative task management suite featuring real-time updates, role-based access, and analytics that shine a
+                  light on team health. Built with test-driven rigor.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/java.svg" alt="Java icon" loading="lazy" />
+                    <span>Java</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/spring.svg" alt="Spring icon" loading="lazy" />
+                    <span>Spring Boot</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/postgresql.svg" alt="PostgreSQL icon" loading="lazy" />
+                    <span>PostgreSQL</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                    <span>React</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img
+                  src="https://placehold.co/640x400/0f172a/ffffff?text=HabitPact"
+                  alt="HabitPact dashboard placeholder"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3>HabitPact</h3>
+                <p>
+                  A social habit-tracking platform with accountability partners, streak insights, and push notifications. Features
+                  JWT-secured APIs and contract-tested integrations.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/java.svg" alt="Java icon" loading="lazy" />
+                    <span>Java</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/spring.svg" alt="Spring icon" loading="lazy" />
+                    <span>Spring Boot</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/mongodb.svg" alt="MongoDB icon" loading="lazy" />
+                    <span>MongoDB</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                    <span>React</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img
+                  src="https://placehold.co/640x400/312e81/ffffff?text=Tech+Tales"
+                  alt="Tech Tales CMS placeholder"
+                  loading="lazy"
+                />
+              </div>
+              <div class="project-card__body">
+                <h3>Tech Tales</h3>
+                <p>
+                  A modern publishing platform with editorial workflows, author profiles, markdown support, and sanitized content
+                  handling. Powered by Spring Boot and a responsive React experience.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/java.svg" alt="Java icon" loading="lazy" />
+                    <span>Java</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/spring.svg" alt="Spring icon" loading="lazy" />
+                    <span>Spring Boot</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/postgresql.svg" alt="PostgreSQL icon" loading="lazy" />
+                    <span>PostgreSQL</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                    <span>React</span>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-card__media">
+                <img src="./assets/images/tenzies.png" alt="Tenzies dice game interface" loading="lazy" />
+              </div>
+              <div class="project-card__body">
+                <h3>Tenzies Game</h3>
+                <p>
+                  A quick-hit dice game crafted to hone state management in React. Features animated rolls, streak tracking, and a
+                  fully responsive interface for desktop and mobile.
+                </p>
+                <div class="project-card__stack">
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                    <span>React</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/javascript.svg" alt="JavaScript icon" loading="lazy" />
+                    <span>JavaScript</span>
+                  </span>
+                  <span class="stack-icon">
+                    <img src="https://www.tech-stack-icons.com/icons/vite.svg" alt="Vite icon" loading="lazy" />
+                    <span>Vite</span>
+                  </span>
+                </div>
+              </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <footer>
+      <section id="skills" class="section skills">
+        <div class="container">
+          <div class="section__header">
+            <p class="eyebrow">Toolbox</p>
+            <h2>End-to-end skills for launching and scaling products</h2>
+            <p class="section__lead">
+              From backend architecture through front-end polish and operational excellence, I help teams design systems that are
+              easy to evolve.
+            </p>
+          </div>
+          <div class="skills__grid">
+            <article class="skill-card">
+              <h3>Backend &amp; Platforms</h3>
+              <p>Designing resilient services with a focus on observability, automation, and sustainable domain-driven design.</p>
+              <div class="skill-card__icons">
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/java.svg" alt="Java icon" loading="lazy" />
+                  <span>Java</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/spring.svg" alt="Spring icon" loading="lazy" />
+                  <span>Spring</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/postgresql.svg" alt="PostgreSQL icon" loading="lazy" />
+                  <span>PostgreSQL</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/kafka.svg" alt="Kafka icon" loading="lazy" />
+                  <span>Kafka</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <h3>Web &amp; Mobile Experience</h3>
+              <p>Crafting thoughtful interfaces with modern tooling, design systems, and accessibility baked in from day one.</p>
+              <div class="skill-card__icons">
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                  <span>React</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/nextjs.svg" alt="Next.js icon" loading="lazy" />
+                  <span>Next.js</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/typescript.svg" alt="TypeScript icon" loading="lazy" />
+                  <span>TypeScript</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/react.svg" alt="React icon" loading="lazy" />
+                  <span>React Native</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="skill-card">
+              <h3>DevOps &amp; Enablement</h3>
+              <p>Enabling teams with guardrails: infrastructure as code, automated pipelines, and insights that keep releases calm.</p>
+              <div class="skill-card__icons">
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/aws.svg" alt="AWS icon" loading="lazy" />
+                  <span>AWS</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/azure.svg" alt="Azure icon" loading="lazy" />
+                  <span>Azure</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/docker.svg" alt="Docker icon" loading="lazy" />
+                  <span>Docker</span>
+                </span>
+                <span class="stack-icon">
+                  <img src="https://www.tech-stack-icons.com/icons/terraform.svg" alt="Terraform icon" loading="lazy" />
+                  <span>Terraform</span>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <div class="contact-card">
+            <div class="contact-card__content">
+              <p class="eyebrow">Let's build something remarkable</p>
+              <h2>Ready for a technical partner who meets craft with delivery?</h2>
+              <p>
+                I'm available for fractional tech leadership, platform modernisation, and cross-functional product engagements.
+                Tell me about your roadmap and let's design the path forward.
+              </p>
+            </div>
+            <div class="contact-card__links">
+              <a href="mailto:m4marzook@gmail.com" class="btn btn--primary">m4marzook@gmail.com</a>
+              <a href="https://github.com/ahmed-marzook" target="_blank" rel="noopener noreferrer" class="contact-link">
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ahmed-marzook-595009188/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-link"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
       <div class="container">
-        <p>&copy; 2025 Ahmed Marzook. All rights reserved.</p>
+        <p>&copy; 2025 Ahmed Marzook. Crafted with curiosity and care.</p>
       </div>
     </footer>
-    <script>
-      function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-        
-        const menuToggle = document.querySelector('.menu-toggle');
-        const spans = menuToggle.querySelectorAll('span');
-        
-        if (navLinks.classList.contains('active')) {
-          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-          spans[1].style.opacity = '0';
-          spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        } else {
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
-      }
 
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        const navLinks = document.querySelector('.nav-links');
-        const menuToggle = document.querySelector('.menu-toggle');
-        
-        if (!event.target.closest('.nav-links') && !event.target.closest('.menu-toggle')) {
-          navLinks.classList.remove('active');
-          const spans = menuToggle.querySelectorAll('span');
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
-      });
-
-      // Close menu when clicking a link
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          const navLinks = document.querySelector('.nav-links');
-          const menuToggle = document.querySelector('.menu-toggle');
-          navLinks.classList.remove('active');
-          const spans = menuToggle.querySelectorAll('span');
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        });
-      });
-    </script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
