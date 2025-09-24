@@ -3,368 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software Engineer Portfolio</title>
-    <style>
-      :root {
-        --primary-color: #2563eb;
-        --secondary-color: #1e40af;
-        --text-color: #1f2937;
-        --bg-color: #ffffff;
-        --section-bg: #f3f4f6;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, sans-serif;
-        line-height: 1.6;
-        color: var(--text-color);
-        background-color: var(--bg-color);
-        overflow-x: hidden;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-
-      /* Header Styles */
-      header {
-        background-color: var(--bg-color);
-        padding: 1rem 0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-      }
-
-      .logo {
-        font-size: 1.25rem;
-        font-weight: bold;
-        color: var(--primary-color);
-      }
-
-      .menu-toggle {
-        display: none;
-        flex-direction: column;
-        gap: 4px;
-        cursor: pointer;
-        padding: 4px;
-      }
-
-      .menu-toggle span {
-        width: 24px;
-        height: 2px;
-        background-color: var(--text-color);
-        transition: all 0.3s ease;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 2rem;
-      }
-
-      .nav-links a {
-        text-decoration: none;
-        color: var(--text-color);
-        font-weight: 500;
-        transition: color 0.3s ease;
-        font-size: 1rem;
-      }
-
-      .nav-links a:hover {
-        color: var(--primary-color);
-      }
-
-      /* Hero Section */
-      .hero {
-        padding: 4rem 0;
-        text-align: center;
-        background-color: var(--section-bg);
-      }
-
-      .hero h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        margin-bottom: 1rem;
-        color: var(--text-color);
-      }
-
-      .hero p {
-        font-size: clamp(1rem, 3vw, 1.25rem);
-        color: #4b5563;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-
-      /* About Section */
-      .about {
-        padding: 4rem 0;
-      }
-
-      .section-title {
-        font-size: clamp(1.5rem, 4vw, 2rem);
-        margin-bottom: 2rem;
-        text-align: center;
-      }
-
-      .about-content {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        align-items: center;
-      }
-
-      .about-image {
-        width: 100%;
-        max-width: 600px;
-        height: auto;
-        aspect-ratio: 1/1;
-        object-fit: cover;
-        background-color: #e5e7eb;
-        border-radius: 8px;
-        margin: 0 auto;
-      }
-
-      .about-text {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      /* Projects Section */
-      .projects {
-        padding: 4rem 0;
-        background-color: var(--section-bg);
-      }
-
-      .projects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-      }
-
-      .project-card {
-        background-color: var(--bg-color);
-        border-radius: 8px;
-        overflow: hidden;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
-        height: 100%;
-      }
-
-      .project-card:hover {
-        transform: translateY(-5px);
-      }
-
-      .project-image {
-        background-color: #e5e7eb;
-      }
-
-      .image-wrapper {
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        max-height: 400px;
-        width: 100%;
-        overflow: hidden;
-      }
-
-      .project-content {
-        padding: 1.25rem;
-      }
-
-      .project-title {
-        font-size: 1.125rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .project-description {
-        color: #4b5563;
-        margin-bottom: 1rem;
-        font-size: 0.875rem;
-      }
-
-      .project-tags {
-        display: flex;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-      }
-
-      .tag {
-        background-color: #e5e7eb;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        color: var(--text-color);
-      }
-
-      /* Skills Section */
-      .skills {
-        padding: 4rem 0;
-      }
-
-      .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-
-      .skill-category {
-        text-align: center;
-        padding: 1rem;
-        background-color: var(--bg-color);
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      }
-
-      .skill-category h3 {
-        margin-bottom: 1rem;
-        font-size: 1.125rem;
-      }
-
-      .skill-list {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      .skill-list span {
-        font-size: 0.875rem;
-      }
-
-      /* Contact Section */
-      .contact {
-        padding: 4rem 0;
-        background-color: var(--section-bg);
-      }
-
-      .contact-content {
-        max-width: 600px;
-        margin: 0 auto;
-        text-align: center;
-        padding: 0 1rem;
-      }
-
-      .contact-links {
-        display: flex;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1.5rem;
-        flex-wrap: wrap;
-      }
-
-      .contact-link {
-        text-decoration: none;
-        color: var(--primary-color);
-        font-weight: 500;
-        transition: color 0.3s ease;
-        font-size: 0.875rem;
-        padding: 0.5rem 1rem;
-        border: 1px solid var(--primary-color);
-        border-radius: 4px;
-      }
-
-      .contact-link:hover {
-        color: var(--bg-color);
-        background-color: var(--primary-color);
-      }
-
-      /* Footer */
-      footer {
-        padding: 1.5rem 0;
-        text-align: center;
-        background-color: var(--text-color);
-        color: var(--bg-color);
-      }
-
-      footer p {
-        font-size: 0.875rem;
-      }
-
-      /* Mobile Navigation */
-      @media (max-width: 768px) {
-        .menu-toggle {
-          display: flex;
-        }
-
-        .nav-links {
-          display: none;
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          flex-direction: column;
-          background-color: var(--bg-color);
-          padding: 1rem;
-          gap: 1rem;
-          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-links.active {
-          display: flex;
-        }
-
-        .nav-links a {
-          padding: 0.5rem 0;
-          border-bottom: 1px solid #e5e7eb;
-          width: 100%;
-          text-align: center;
-        }
-
-        .nav-links a:last-child {
-          border-bottom: none;
-        }
-
-        .about-content {
-          gap: 2rem;
-        }
-
-        .about-image {
-          height: 300px;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .skills-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* Larger Screen Optimizations */
-      @media (min-width: 1024px) {
-        .about-content {
-          grid-template-columns: 1fr 1fr;
-          gap: 4rem;
-        }
-
-        .projects-grid {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
-
-    </style>
+    <title>Ahmed Marzook | Software Engineer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
     <header>
       <nav class="container">
         <div class="logo">Ahmed Marzook</div>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <div class="nav-links">
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
@@ -374,247 +27,305 @@
       </nav>
     </header>
 
-    <section class="hero">
-      <div class="container">
-        <h1>Software Developer</h1>
-        <p>
-          Experienced developer with 6+ years in enterprise-level SaaS
-          applications, specializing in Java and Spring Framework
-        </p>
-      </div>
-    </section>
-
-    <section id="about" class="about">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-          <img src="./assets/images/me.png" class="about-image" alt="Picture of Ahmed Marzook"></img>
-          <div class="about-text">
-            <p>
-              Experienced Software Developer with 6+ years in developing and
-              maintaining enterprise-level SaaS applications. Proficient in Java
-              (versions 8 to 21) and Spring Framework, with a strong background
-              in both legacy system upgrades and greenfield microservice
-              development.
-            </p>
-            <p>
-              Proficient in implementing CI/CD pipelines, working with cloud
-              platforms (AWS, Azure), and utilizing Agile methodologies.
-              Demonstrated leadership through mentoring colleagues and
-              conducting knowledge-sharing sessions on best practices.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="projects">
-      <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="image-wrapper"><img src="./assets/images/lastlang.png" class="project-image"></img></div>
-            <div class="project-content">
-              <h3 class="project-title">The Last High-Level Language</h3>
-              <p class="project-description">
-                A dystopian Hangman game where each failed guess eliminates a programming language, pushing humanity closer to an Assembly-only future. Features 8 programming language eliminations, themed word bank, and interactive keyboard interface.
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-text">
+              <span class="hero-eyebrow">Full-stack software engineer</span>
+              <h1>Building reliable software that scales with your product vision</h1>
+              <p>
+                I help product teams modernize enterprise platforms, launch cloud-native services, and craft intuitive user experiences that people love to use every day.
               </p>
-              <div class="project-tags">
-                <span class="tag">React</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Vite</span>
-                <span class="tag">npm</span>
+              <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View featured work</a>
+                <a href="#contact" class="btn btn-secondary">Let's collaborate</a>
+              </div>
+              <div class="hero-stats">
+                <div class="stat">
+                  <span class="stat-value">6+</span>
+                  <span class="stat-label">Years shipping enterprise SaaS</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">10+</span>
+                  <span class="stat-label">Cloud-native services launched</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-value">Mentor</span>
+                  <span class="stat-label">Coaching teams on clean delivery</span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="project-card">
-            <div class="image-wrapper"><img src="./assets/images/tenzies.png" class="project-image"></img></div>
-            <div class="project-content">
-              <h3 class="project-title">Tenzies Game</h3>
-              <p class="project-description">
-                A fast-paced dice game where players roll until all dice match. Features real-time scoring, game timer, celebrations, and responsive design. The perfect project for practicing React state management and hooks.
-              </p>
-              <div class="project-tags">
-                <span class="tag">React</span>
-                <span class="tag">JavaScript</span>
-                <span class="tag">Vite</span>
-                <span class="tag">npm</span>
+            <div class="hero-visual">
+              <div class="hero-profile">
+                <img src="./assets/images/me.png" alt="Portrait of Ahmed Marzook" />
               </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">WeatherBridge API</h3>
-              <p class="project-description">
-                A Spring Boot weather API service integrating Visual Crossing with Redis caching. Features real-time weather data access, clean architecture, and full CI/CD pipeline with AWS infrastructure managed via Terraform.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">Redis</span>
-                <span class="tag">AWS</span>
-                <span class="tag">React</span>
-                <span class="tag">Terraform</span>
+              <div class="hero-badge">
+                <span>Enterprise SaaS Specialist</span>
+                <p>From refactoring legacy monoliths to launching microservices, I keep teams shipping with confidence.</p>
               </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">HabitPact</h3>
-              <p class="project-description">
-                A habit tracking platform with social accountability features, including habit creation, progress tracking, and friend partnerships. Built with Spring Boot, MongoDB, and React, featuring JWT authentication and comprehensive API testing.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">MongoDB</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">Tech Tales</h3>
-              <p class="project-description">
-                A modern blogging platform with full-featured article management system. Built with Spring Boot and React, featuring author profiles, pagination, sanitized content handling, and comprehensive test coverage.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
-           </div>
-           <div class="project-card">
-            <div class="project-image"></div>
-            <div class="project-content">
-              <h3 class="project-title">DayMapper</h3>
-              <p class="project-description">
-                A task management platform built with Spring Boot and React, featuring user authentication, task tracking, real-time status updates, and PostgreSQL data persistence. Includes comprehensive test coverage and API documentation.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Java</span>
-                <span class="tag">Spring Boot</span>
-                <span class="tag">PostgreSQL</span>
-                <span class="tag">React</span>
-              </div>
-            </div>
-           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="skills">
-      <div class="container">
-        <h2 class="section-title">Skills</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h3>Core Skills</h3>
-            <div class="skill-list">
-              <span>Java 8, 11, 17, 21</span>
-              <span>Spring Framework</span>
-              <span>REST API</span>
-              <span>SQL</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Cloud & DevOps</h3>
-            <div class="skill-list">
-              <span>AWS</span>
-              <span>Azure</span>
-              <span>Docker</span>
-              <span>Terraform</span>
-            </div>
-          </div>
-          <div class="skill-category">
-            <h3>Tools & Others</h3>
-            <div class="skill-list">
-              <span>Git (BitBucket & GitLab)</span>
-              <span>Playwright</span>
-              <span>Python</span>
-              <span>JavaScript</span>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2 class="section-title">Get in Touch</h2>
-        <div class="contact-content">
-          <p>
-            I'm curious to learn what excites you - tell me about your passions and what you're working on!
+      <section id="about" class="about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-content">
+            <div class="about-visual">
+              <img src="./assets/images/me.png" alt="Ahmed smiling" class="about-image" />
+              <div class="about-quote">Always curious about the next clever workflow, the next elegant architecture, and the people who make both possible.</div>
+            </div>
+            <div class="about-text">
+              <p>
+                Experienced software developer with <strong>6+ years</strong> building and scaling enterprise SaaS platforms. I'm fluent in Java (8 through 21) and the Spring ecosystem, delivering resilient APIs, modern front-ends, and thoughtful developer experiences.
+              </p>
+              <p>
+                I thrive in cross-functional environments—pairing with product, design, and ops to design secure cloud infrastructure, enable CI/CD automation, and guide teams through modernization initiatives. Mentorship and knowledge-sharing are core to how I operate.
+              </p>
+              <div class="about-pills">
+                <span class="pill">System Design</span>
+                <span class="pill">Microservices</span>
+                <span class="pill">Cloud Infrastructure</span>
+                <span class="pill">Developer Experience</span>
+              </div>
+              <div class="about-highlights">
+                <div class="highlight-card">
+                  <h3>Platform Modernization</h3>
+                  <p>Transforming legacy monoliths into secure, observable, and scalable service architectures.</p>
+                </div>
+                <div class="highlight-card">
+                  <h3>Automation at Scale</h3>
+                  <p>Designing CI/CD pipelines, cloud infrastructure, and guardrails that keep delivery moving fast.</p>
+                </div>
+                <div class="highlight-card">
+                  <h3>People & Culture</h3>
+                  <p>Leading squads, mentoring developers, and energizing teams with workshops and pairing sessions.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects">
+        <div class="container">
+          <h2 class="section-title">Featured Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-media">
+                <img src="./assets/images/lastlang.png" alt="Screenshot from The Last High-Level Language game" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">The Last High-Level Language</h3>
+                <p class="project-description">
+                  A dystopian spin on Hangman—each wrong guess wipes out a programming language, inching humanity toward an assembly-only future. Includes an interactive keyboard, language lore, and immersive animations.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Vite</span>
+                  <span class="tag">npm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="./assets/images/tenzies.png" alt="Tenzies dice game interface" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Tenzies Game</h3>
+                <p class="project-description">
+                  A quick-hit dice game built to hone state management in React. Features animated rolls, streak tracking, celebratory confetti, and a fully responsive interface for desktop and mobile.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">JavaScript</span>
+                  <span class="tag">Vite</span>
+                  <span class="tag">npm</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="https://placehold.co/600x400/111827/ffffff?text=WeatherBridge+API" alt="WeatherBridge API dashboard placeholder" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">WeatherBridge API</h3>
+                <p class="project-description">
+                  A Spring Boot service that aggregates Visual Crossing weather data with Redis caching to deliver fast, reliable forecasts. Features clean architecture, Terraform-managed AWS infrastructure, and automated CI/CD.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Spring Boot</span>
+                  <span class="tag">Redis</span>
+                  <span class="tag">AWS</span>
+                  <span class="tag">React</span>
+                  <span class="tag">Terraform</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="https://placehold.co/600x400/0f172a/ffffff?text=HabitPact" alt="HabitPact dashboard placeholder" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">HabitPact</h3>
+                <p class="project-description">
+                  A social habit-tracking platform with accountability partners, streak insights, and push notifications. Built with Spring Boot, MongoDB, and React plus JWT authentication and contract-tested APIs.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Spring Boot</span>
+                  <span class="tag">MongoDB</span>
+                  <span class="tag">React</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="https://placehold.co/600x400/312e81/ffffff?text=Tech+Tales" alt="Tech Tales CMS placeholder" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Tech Tales</h3>
+                <p class="project-description">
+                  A modern publishing platform with editorial workflows, author profiles, markdown support, and sanitized content handling. Powered by Spring Boot, PostgreSQL, and a responsive React front end.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Spring Boot</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">React</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="https://placehold.co/600x400/164e63/ffffff?text=DayMapper" alt="DayMapper task board placeholder" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">DayMapper</h3>
+                <p class="project-description">
+                  A collaborative task management suite featuring real-time updates, role-based access, and rich analytics. Uses Spring Boot, React, and PostgreSQL with comprehensive automated testing.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Java</span>
+                  <span class="tag">Spring Boot</span>
+                  <span class="tag">PostgreSQL</span>
+                  <span class="tag">React</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="https://placehold.co/600x400/4f46e5/ffffff?text=Birth+Your+Way" alt="Birth Your Way birth plan generator placeholder" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">Birth Your Way</h3>
+                <p class="project-description">
+                  A personalized birth plan generator that empowers families with curated, evidence-backed guidance. Includes dynamic questionnaires, shareable plans, and an empathetic experience for every stage of birth preparation.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Contentful</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://birthyourway.co.za" class="project-link primary" target="_blank" rel="noopener noreferrer">Visit site</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-media">
+                <img src="https://placehold.co/600x400/0b1120/ffffff?text=DoItNow" alt="DoItNow React Native to-do app placeholder" />
+              </div>
+              <div class="project-content">
+                <h3 class="project-title">DoItNow</h3>
+                <p class="project-description">
+                  A React Native productivity app designed for fast, offline-friendly task capture. Features intuitive gestures, calendar sync, reminders, and a focus mode for deep work sprints.
+                </p>
+                <div class="project-tags">
+                  <span class="tag">React Native</span>
+                  <span class="tag">Expo</span>
+                  <span class="tag">TypeScript</span>
+                </div>
+                <div class="project-actions">
+                  <a href="https://github.com/ahmed-marzook/DoItNow" class="project-link primary" target="_blank" rel="noopener noreferrer">View repository</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills">
+        <div class="container">
+          <h2 class="section-title">Skills</h2>
+          <p class="skills-intro">
+            A toolbox shaped by enterprise product delivery: scalable backend services, resilient infrastructure, and immersive interfaces that prioritize user outcomes.
           </p>
-          <div class="contact-links">
-            <a href="mailto:m4marzook@gmail.com" class="contact-link">Email</a>
-            <a href="https://github.com/ahmed-marzook" class="contact-link"
-              >GitHub</a
-            >
-            <a
-              href="https://www.linkedin.com/in/ahmed-marzook-595009188/"
-              class="contact-link"
-              >LinkedIn</a
-            >
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Core Engineering</h3>
+              <div class="skill-list">
+                <span>Java 8, 11, 17, 21</span>
+                <span>Spring Boot & Spring Cloud</span>
+                <span>REST & GraphQL API design</span>
+                <span>SQL & relational modelling</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>Cloud & DevOps</h3>
+              <div class="skill-list">
+                <span>AWS & Azure architecture</span>
+                <span>Docker & container orchestration</span>
+                <span>Terraform, Helm & IaC practices</span>
+                <span>CI/CD pipelines & observability</span>
+              </div>
+            </div>
+            <div class="skill-category">
+              <h3>Experience & Tooling</h3>
+              <div class="skill-list">
+                <span>React, TypeScript & modern JS</span>
+                <span>Python scripting & automation</span>
+                <span>Playwright end-to-end testing</span>
+                <span>Git (GitLab, GitHub, Bitbucket)</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
+      <section id="contact" class="contact">
+        <div class="container">
+          <div class="contact-content">
+            <h2 class="section-title">Let's build something remarkable</h2>
+            <p>
+              I'm always excited to collaborate on resilient platforms, thoughtful product experiences, and initiatives that help teams ship with confidence. Tell me about what you're building.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:m4marzook@gmail.com" class="contact-link">Email</a>
+              <a href="https://github.com/ahmed-marzook" class="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/ahmed-marzook-595009188/" class="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <footer>
       <div class="container">
-        <p>&copy; 2025 Ahmed Marzook. All rights reserved.</p>
+        <p>&copy; 2025 Ahmed Marzook. Crafted with curiosity and care.</p>
       </div>
     </footer>
-    <script>
-      function toggleMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.classList.toggle('active');
-        
-        const menuToggle = document.querySelector('.menu-toggle');
-        const spans = menuToggle.querySelectorAll('span');
-        
-        if (navLinks.classList.contains('active')) {
-          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-          spans[1].style.opacity = '0';
-          spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        } else {
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
-      }
 
-      // Close menu when clicking outside
-      document.addEventListener('click', function(event) {
-        const navLinks = document.querySelector('.nav-links');
-        const menuToggle = document.querySelector('.menu-toggle');
-        
-        if (!event.target.closest('.nav-links') && !event.target.closest('.menu-toggle')) {
-          navLinks.classList.remove('active');
-          const spans = menuToggle.querySelectorAll('span');
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
-      });
-
-      // Close menu when clicking a link
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          const navLinks = document.querySelector('.nav-links');
-          const menuToggle = document.querySelector('.menu-toggle');
-          navLinks.classList.remove('active');
-          const spans = menuToggle.querySelectorAll('span');
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        });
-      });
-    </script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
