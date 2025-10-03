@@ -30,32 +30,32 @@ const {
   </head>
   <body>
     <slot />
-    <script is:inline type="module" lang="ts">
+    <script is:inline>
       document.addEventListener('DOMContentLoaded', () => {
-        const initRevealAnimations = (): void => {
+        const initRevealAnimations = () => {
           const revealElements = Array.from(
-            document.querySelectorAll<HTMLElement>('[data-reveal]'),
+            document.querySelectorAll('[data-reveal]'),
           );
 
           if (!revealElements.length) {
             return;
           }
 
-          const prefersReducedMotion: MediaQueryList = window.matchMedia(
+          const prefersReducedMotion = window.matchMedia(
             '(prefers-reduced-motion: reduce)'
           );
 
-          const pendingElements = new Set<HTMLElement>(revealElements);
+          const pendingElements = new Set(revealElements);
 
-          const showElement = (element: HTMLElement): void => {
+          const showElement = element => {
             element.classList.add('reveal-visible');
             pendingElements.delete(element);
           };
 
-          let observer: IntersectionObserver | null = null;
-          let scrollRafId: number | null = null;
+          let observer = null;
+          let scrollRafId = null;
 
-          const cleanup = (): void => {
+          const cleanup = () => {
             if (scrollRafId !== null) {
               window.cancelAnimationFrame(scrollRafId);
               scrollRafId = null;
@@ -67,7 +67,7 @@ const {
             observer?.disconnect();
           };
 
-          const runVisibilityCheck = (): void => {
+          const runVisibilityCheck = () => {
             scrollRafId = null;
 
             if (!pendingElements.size) {
@@ -94,7 +94,7 @@ const {
             }
           };
 
-          const scheduleVisibilityCheck = (): void => {
+          const scheduleVisibilityCheck = () => {
             if (scrollRafId !== null) {
               return;
             }
@@ -102,7 +102,7 @@ const {
             scrollRafId = window.requestAnimationFrame(runVisibilityCheck);
           };
 
-          const showAll = (): void => {
+          const showAll = () => {
             Array.from(pendingElements).forEach(showElement);
             cleanup();
           };
@@ -117,8 +117,8 @@ const {
               entries => {
                 entries.forEach(entry => {
                   if (entry.isIntersecting) {
-                    showElement(entry.target as HTMLElement);
-                    observer?.unobserve(entry.target as Element);
+                    showElement(entry.target);
+                    observer?.unobserve(entry.target);
                   }
                 });
 
@@ -142,7 +142,7 @@ const {
 
           scheduleVisibilityCheck();
 
-          const handleMotionPreferenceChange = (event: MediaQueryListEvent): void => {
+          const handleMotionPreferenceChange = event => {
             if (event.matches) {
               showAll();
             }
@@ -157,14 +157,17 @@ const {
 
         initRevealAnimations();
 
-        const navLinks = document.querySelector<HTMLElement>('.nav-links');
-        const menuToggle = document.querySelector<HTMLElement>('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        const menuToggle = document.querySelector('.menu-toggle');
 
-        if (!navLinks || !menuToggle) {
+        if (
+          !(navLinks instanceof HTMLElement) ||
+          !(menuToggle instanceof HTMLElement)
+        ) {
           return;
         }
 
-        const toggleMenu = (): void => {
+        const toggleMenu = () => {
           navLinks.classList.toggle('active');
           menuToggle.classList.toggle('open');
         };
@@ -182,7 +185,7 @@ const {
           menuToggle.classList.remove('open');
         });
 
-        navLinks.querySelectorAll<HTMLAnchorElement>('a').forEach(link => {
+        navLinks.querySelectorAll('a').forEach(link => {
           link.addEventListener('click', () => {
             navLinks.classList.remove('active');
             menuToggle.classList.remove('open');
