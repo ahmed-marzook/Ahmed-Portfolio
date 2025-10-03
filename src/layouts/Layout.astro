@@ -30,6 +30,165 @@ const {
   </head>
   <body>
     <slot />
-    <script src="js/main.js" type="module" defer></script>
+    <script is:inline type="module" lang="ts">
+      document.addEventListener('DOMContentLoaded', () => {
+        const initRevealAnimations = (): void => {
+          const revealElements = Array.from(
+            document.querySelectorAll<HTMLElement>('[data-reveal]'),
+          );
+
+          if (!revealElements.length) {
+            return;
+          }
+
+          const prefersReducedMotion: MediaQueryList = window.matchMedia(
+            '(prefers-reduced-motion: reduce)'
+          );
+
+          const pendingElements = new Set<HTMLElement>(revealElements);
+
+          const showElement = (element: HTMLElement): void => {
+            element.classList.add('reveal-visible');
+            pendingElements.delete(element);
+          };
+
+          let observer: IntersectionObserver | null = null;
+          let scrollRafId: number | null = null;
+
+          const cleanup = (): void => {
+            if (scrollRafId !== null) {
+              window.cancelAnimationFrame(scrollRafId);
+              scrollRafId = null;
+            }
+
+            window.removeEventListener('scroll', scheduleVisibilityCheck);
+            window.removeEventListener('resize', scheduleVisibilityCheck);
+
+            observer?.disconnect();
+          };
+
+          const runVisibilityCheck = (): void => {
+            scrollRafId = null;
+
+            if (!pendingElements.size) {
+              cleanup();
+              return;
+            }
+
+            const viewportHeight =
+              window.innerHeight || document.documentElement.clientHeight || 0;
+            const activationPoint = viewportHeight * 0.85;
+            const topBoundary = viewportHeight * 0.05;
+
+            pendingElements.forEach(element => {
+              const rect = element.getBoundingClientRect();
+
+              if (rect.top <= activationPoint && rect.bottom >= topBoundary) {
+                showElement(element);
+                observer?.unobserve(element);
+              }
+            });
+
+            if (!pendingElements.size) {
+              cleanup();
+            }
+          };
+
+          const scheduleVisibilityCheck = (): void => {
+            if (scrollRafId !== null) {
+              return;
+            }
+
+            scrollRafId = window.requestAnimationFrame(runVisibilityCheck);
+          };
+
+          const showAll = (): void => {
+            Array.from(pendingElements).forEach(showElement);
+            cleanup();
+          };
+
+          if (prefersReducedMotion.matches) {
+            showAll();
+            return;
+          }
+
+          if ('IntersectionObserver' in window) {
+            observer = new IntersectionObserver(
+              entries => {
+                entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                    showElement(entry.target as HTMLElement);
+                    observer?.unobserve(entry.target as Element);
+                  }
+                });
+
+                if (!pendingElements.size) {
+                  cleanup();
+                }
+              },
+              {
+                rootMargin: '0px 0px -12% 0px',
+                threshold: 0.2,
+              },
+            );
+
+            pendingElements.forEach(element => observer?.observe(element));
+          }
+
+          window.addEventListener('scroll', scheduleVisibilityCheck, {
+            passive: true,
+          });
+          window.addEventListener('resize', scheduleVisibilityCheck);
+
+          scheduleVisibilityCheck();
+
+          const handleMotionPreferenceChange = (event: MediaQueryListEvent): void => {
+            if (event.matches) {
+              showAll();
+            }
+          };
+
+          if (typeof prefersReducedMotion.addEventListener === 'function') {
+            prefersReducedMotion.addEventListener('change', handleMotionPreferenceChange);
+          } else if (typeof prefersReducedMotion.addListener === 'function') {
+            prefersReducedMotion.addListener(handleMotionPreferenceChange);
+          }
+        };
+
+        initRevealAnimations();
+
+        const navLinks = document.querySelector<HTMLElement>('.nav-links');
+        const menuToggle = document.querySelector<HTMLElement>('.menu-toggle');
+
+        if (!navLinks || !menuToggle) {
+          return;
+        }
+
+        const toggleMenu = (): void => {
+          navLinks.classList.toggle('active');
+          menuToggle.classList.toggle('open');
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+
+        document.addEventListener('click', event => {
+          const target = event.target;
+
+          if (!(target instanceof Element) || target.closest('nav')) {
+            return;
+          }
+
+          navLinks.classList.remove('active');
+          menuToggle.classList.remove('open');
+        });
+
+        navLinks.querySelectorAll<HTMLAnchorElement>('a').forEach(link => {
+          link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuToggle.classList.remove('open');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
