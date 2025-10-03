@@ -1,3 +1,49 @@
+---
+import { Image } from 'astro:assets';
+
+import HeroPortrait from '../assets/images/me.png';
+import BirthYourWayImage from '../assets/images/birth-your-way.png';
+import LastLangImage from '../assets/images/lastlang.png';
+import TenziesImage from '../assets/images/tenzies.png';
+import WeatherBridgeImage from '../assets/images/weather-bridge.jpg';
+
+import AwsIcon from '../assets/images/tech-stack-icons/AWS.svg';
+import AzureIcon from '../assets/images/tech-stack-icons/Azure.svg';
+import DockerIcon from '../assets/images/tech-stack-icons/Docker.svg';
+import HashiCorpTerraformIcon from '../assets/images/tech-stack-icons/HashiCorp-Terraform.svg';
+import JavaIcon from '../assets/images/tech-stack-icons/Java.svg';
+import JavaScriptIcon from '../assets/images/tech-stack-icons/JavaScript.svg';
+import MongoDbIcon from '../assets/images/tech-stack-icons/MongoDB.svg';
+import NodeIcon from '../assets/images/tech-stack-icons/Node.js.svg';
+import NpmIcon from '../assets/images/tech-stack-icons/NPM.svg';
+import PostgresIcon from '../assets/images/tech-stack-icons/PostgresSQL.svg';
+import PythonIcon from '../assets/images/tech-stack-icons/Python.svg';
+import ReactIcon from '../assets/images/tech-stack-icons/React.svg';
+import RedisIcon from '../assets/images/tech-stack-icons/Redis.svg';
+import SpringIcon from '../assets/images/tech-stack-icons/Spring.svg';
+import TypeScriptIcon from '../assets/images/tech-stack-icons/TypeScript.svg';
+import ViteIcon from '../assets/images/tech-stack-icons/Vite.svg';
+
+const techIcons = {
+  aws: AwsIcon,
+  azure: AzureIcon,
+  docker: DockerIcon,
+  hashicorpTerraform: HashiCorpTerraformIcon,
+  java: JavaIcon,
+  javascript: JavaScriptIcon,
+  mongodb: MongoDbIcon,
+  node: NodeIcon,
+  npm: NpmIcon,
+  postgres: PostgresIcon,
+  python: PythonIcon,
+  react: ReactIcon,
+  redis: RedisIcon,
+  spring: SpringIcon,
+  typescript: TypeScriptIcon,
+  vite: ViteIcon,
+} as const;
+---
+
 <header>
       <nav class="container">
         <div class="logo">Ahmed Marzook</div>
@@ -65,9 +111,10 @@
               style="--reveal-delay: 0.15s"
             >
               <div class="hero-profile">
-                <img
-                  src="images/me.png"
+                <Image
+                  src={HeroPortrait}
                   alt="Portrait of Ahmed Marzook"
+                  loading="eager"
                 />
               </div>
             </div>
@@ -80,8 +127,8 @@
           <h2 class="section-title" data-reveal>About Me</h2>
           <div class="about-content">
             <div class="about-visual" data-reveal="left">
-              <img
-                src="images/me.png"
+              <Image
+                src={HeroPortrait}
                 alt="Ahmed smiling"
                 class="about-image"
               />
@@ -156,9 +203,10 @@
           <div class="projects-grid">
             <div class="project-card" data-reveal>
               <div class="project-media">
-                <img
-                  src="images/birth-your-way.png"
+                <Image
+                  src={BirthYourWayImage}
                   alt="Birth Your Way birth plan generator placeholder"
+                  loading="lazy"
                 />
               </div>
               <div class="project-content">
@@ -172,7 +220,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -181,7 +229,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/TypeScript.svg"
+                      src={techIcons.typescript}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -190,7 +238,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Vite.svg"
+                      src={techIcons.vite}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -199,7 +247,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Azure.svg"
+                      src={techIcons.azure}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -208,7 +256,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/NPM.svg"
+                      src={techIcons.npm}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -233,9 +281,10 @@
               style="--reveal-delay: 0.05s"
             >
               <div class="project-media">
-                <img
-                  src="images/lastlang.png"
+                <Image
+                  src={LastLangImage}
                   alt="Screenshot from The Last High-Level Language game"
+                  loading="lazy"
                 />
               </div>
               <div class="project-content">
@@ -249,7 +298,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -258,7 +307,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/JavaScript.svg"
+                      src={techIcons.javascript}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -267,7 +316,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Vite.svg"
+                      src={techIcons.vite}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -276,7 +325,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/NPM.svg"
+                      src={techIcons.npm}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -303,9 +352,10 @@
 
             <div class="project-card" data-reveal style="--reveal-delay: 0.1s">
               <div class="project-media">
-                <img
-                  src="images/tenzies.png"
+                <Image
+                  src={TenziesImage}
                   alt="Tenzies dice game interface"
+                  loading="lazy"
                 />
               </div>
               <div class="project-content">
@@ -319,7 +369,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -328,7 +378,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/JavaScript.svg"
+                      src={techIcons.javascript}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -337,7 +387,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Vite.svg"
+                      src={techIcons.vite}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -346,7 +396,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/NPM.svg"
+                      src={techIcons.npm}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -377,9 +427,10 @@
               style="--reveal-delay: 0.15s"
             >
               <div class="project-media">
-                <img
-                  src="images/weather-bridge.jpg"
+                <Image
+                  src={WeatherBridgeImage}
                   alt="WeatherBridge API dashboard placeholder"
+                  loading="lazy"
                 />
               </div>
               <div class="project-content">
@@ -393,7 +444,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Java.svg"
+                      src={techIcons.java}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -402,7 +453,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Spring.svg"
+                      src={techIcons.spring}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -411,7 +462,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Redis.svg"
+                      src={techIcons.redis}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -420,7 +471,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/AWS.svg"
+                      src={techIcons.aws}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -429,7 +480,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -438,7 +489,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/HashiCorp-Terraform.svg"
+                      src={techIcons.hashicorpTerraform}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -475,7 +526,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Java.svg"
+                      src={techIcons.java}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -484,7 +535,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Spring.svg"
+                      src={techIcons.spring}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -493,7 +544,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/MongoDB.svg"
+                      src={techIcons.mongodb}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -502,7 +553,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -543,7 +594,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Java.svg"
+                      src={techIcons.java}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -552,7 +603,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Spring.svg"
+                      src={techIcons.spring}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -561,7 +612,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/PostgresSQL.svg"
+                      src={techIcons.postgres}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -570,7 +621,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -607,7 +658,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Java.svg"
+                      src={techIcons.java}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -616,7 +667,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/Spring.svg"
+                      src={techIcons.spring}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -625,7 +676,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/PostgresSQL.svg"
+                      src={techIcons.postgres}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -634,7 +685,7 @@
                   </span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -675,7 +726,7 @@
                 <div class="project-tags">
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/React.svg"
+                      src={techIcons.react}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -685,7 +736,7 @@
                   <span class="tag">Expo</span>
                   <span class="tag">
                     <img
-                      src="images/tech-stack-icons/TypeScript.svg"
+                      src={techIcons.typescript}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
@@ -730,7 +781,7 @@
                 style="--reveal-delay: 0.12s"
               >
                 <img
-                  src="images/tech-stack-icons/Java.svg"
+                  src={techIcons.java}
                   alt="Java logo"
                   loading="lazy"
                 />
@@ -742,7 +793,7 @@
                 style="--reveal-delay: 0.17s"
               >
                 <img
-                  src="images/tech-stack-icons/Spring.svg"
+                  src={techIcons.spring}
                   alt="Spring Framework logo"
                   loading="lazy"
                 />
@@ -754,7 +805,7 @@
                 style="--reveal-delay: 0.22s"
               >
                 <img
-                  src="images/tech-stack-icons/React.svg"
+                  src={techIcons.react}
                   alt="React logo"
                   loading="lazy"
                 />
@@ -766,7 +817,7 @@
                 style="--reveal-delay: 0.27s"
               >
                 <img
-                  src="images/tech-stack-icons/TypeScript.svg"
+                  src={techIcons.typescript}
                   alt="TypeScript logo"
                   loading="lazy"
                 />
@@ -778,7 +829,7 @@
                 style="--reveal-delay: 0.32s"
               >
                 <img
-                  src="images/tech-stack-icons/Node.js.svg"
+                  src={techIcons.node}
                   alt="Node.js logo"
                   loading="lazy"
                 />
@@ -790,7 +841,7 @@
                 style="--reveal-delay: 0.37s"
               >
                 <img
-                  src="images/tech-stack-icons/Python.svg"
+                  src={techIcons.python}
                   alt="Python logo"
                   loading="lazy"
                 />
@@ -802,7 +853,7 @@
                 style="--reveal-delay: 0.42s"
               >
                 <img
-                  src="images/tech-stack-icons/Docker.svg"
+                  src={techIcons.docker}
                   alt="Docker logo"
                   loading="lazy"
                 />
@@ -814,7 +865,7 @@
                 style="--reveal-delay: 0.47s"
               >
                 <img
-                  src="images/tech-stack-icons/AWS.svg"
+                  src={techIcons.aws}
                   alt="AWS logo"
                   loading="lazy"
                 />
@@ -826,7 +877,7 @@
                 style="--reveal-delay: 0.52s"
               >
                 <img
-                  src="images/tech-stack-icons/HashiCorp-Terraform.svg"
+                  src={techIcons.hashicorpTerraform}
                   alt="Terraform logo"
                   loading="lazy"
                 />
@@ -838,7 +889,7 @@
                 style="--reveal-delay: 0.57s"
               >
                 <img
-                  src="images/tech-stack-icons/PostgresSQL.svg"
+                  src={techIcons.postgres}
                   alt="PostgreSQL logo"
                   loading="lazy"
                 />
@@ -850,7 +901,7 @@
                 style="--reveal-delay: 0.62s"
               >
                 <img
-                  src="images/tech-stack-icons/MongoDB.svg"
+                  src={techIcons.mongodb}
                   alt="MongoDB logo"
                   loading="lazy"
                 />
