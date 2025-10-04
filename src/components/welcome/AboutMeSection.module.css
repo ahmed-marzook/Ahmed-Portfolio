@@ -1,0 +1,121 @@
+.about {
+  padding: 5rem 0;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  text-align: center;
+  margin-bottom: 2.75rem;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.aboutContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.aboutVisual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.aboutImage {
+  width: min(360px, 80%);
+  aspect-ratio: 1 / 1;
+  border-radius: 2rem;
+  object-fit: cover;
+  box-shadow: 0 30px 60px rgba(15, 23, 42, 0.18);
+  border: 6px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.aboutQuote {
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  color: #475569;
+  font-size: 0.95rem;
+  text-align: center;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.12);
+}
+
+.aboutText {
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 1.75rem;
+  padding: 2rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  color: #475569;
+  font-size: 1rem;
+}
+
+.aboutText strong {
+  color: #0f172a;
+}
+
+.aboutHighlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.highlightCard {
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 1.25rem;
+  padding: 1.35rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+}
+
+.highlightCard h3 {
+  font-size: 1rem;
+  margin-bottom: 0.65rem;
+  color: #0f172a;
+}
+
+.highlightCard p {
+  font-size: 0.9rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.aboutPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  background: rgba(99, 102, 241, 0.12);
+  color: #6366f1;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+  .aboutImage {
+    width: min(320px, 60%);
+  }
+}
+
+@media (max-width: 540px) {
+  .aboutImage {
+    width: 75%;
+  }
+}
