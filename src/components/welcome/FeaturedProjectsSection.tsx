@@ -39,8 +39,10 @@ const projects: Project[] = [
     description:
       "A personalized birth plan generator that empowers families with curated, evidence-backed guidance. Includes dynamic questionnaires, shareable plans, and an empathetic experience for every stage of birth preparation.",
     image: {
-      src: birthYourWayImg,
+      src: birthYourWayImg.src,
       alt: "Birth Your Way birth plan generator placeholder",
+      width: birthYourWayImg.width,
+      height: birthYourWayImg.height,
     },
     tags: [
       { label: "React", iconKey: "react" },
@@ -59,8 +61,10 @@ const projects: Project[] = [
     description:
       "A dystopian spin on Hangman—each wrong guess wipes out a programming language, inching humanity toward an assembly-only future. Includes an interactive keyboard, language lore, and immersive animations.",
     image: {
-      src: lastLangImg,
+      src: lastLangImg.src,
       alt: "Screenshot from The Last High-Level Language game",
+      width: lastLangImg.width,
+      height: lastLangImg.height,
     },
     tags: [
       { label: "React", iconKey: "react" },
@@ -88,8 +92,10 @@ const projects: Project[] = [
     description:
       "A quick-hit dice game built to hone state management in React. Features animated rolls, streak tracking, celebratory confetti, and a fully responsive interface for desktop and mobile.",
     image: {
-      src: tenziesImg,
+      src: tenziesImg.src,
       alt: "Tenzies dice game interface",
+      width: tenziesImg.width,
+      height: tenziesImg.height,
     },
     tags: [
       { label: "React", iconKey: "react" },
@@ -113,8 +119,10 @@ const projects: Project[] = [
     description:
       "A Spring Boot service that aggregates Visual Crossing weather data with Redis caching to deliver fast, reliable forecasts. Features clean architecture, Terraform-managed AWS infrastructure, and automated CI/CD.",
     image: {
-      src: weatherBridgeImg,
+      src: weatherBridgeImg.src,
       alt: "WeatherBridge API dashboard placeholder",
+      width: weatherBridgeImg.width,
+      height: weatherBridgeImg.height,
     },
     tags: [
       { label: "Java", iconKey: "java" },

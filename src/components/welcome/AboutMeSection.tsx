@@ -39,10 +39,12 @@ const AboutMeSection = () => (
       <div className={styles.aboutContent}>
         <div className={styles.aboutVisual} data-reveal="left">
           <img
-            src={heroPortrait}
+            src={heroPortrait.src}
             alt="Ahmed smiling"
             className={styles.aboutImage}
             loading="lazy"
+            width={heroPortrait.width}
+            height={heroPortrait.height}
           />
           <div className={styles.aboutQuote}>
             Always curious about the next clever workflow, the next elegant architecture, and the people who make both
