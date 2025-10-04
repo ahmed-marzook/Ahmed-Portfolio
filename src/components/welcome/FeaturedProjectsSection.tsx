@@ -1,4 +1,8 @@
 import type { CSSProperties } from "react";
+import birthYourWayImg from "../../assets/images/birth-your-way.png";
+import lastLangImg from "../../assets/images/lastlang.png";
+import tenziesImg from "../../assets/images/tenzies.png";
+import weatherBridgeImg from "../../assets/images/weather-bridge.jpg";
 import techIcons from "./techIcons";
 import styles from "./FeaturedProjectsSection.module.css";
 
@@ -35,7 +39,7 @@ const projects: Project[] = [
     description:
       "A personalized birth plan generator that empowers families with curated, evidence-backed guidance. Includes dynamic questionnaires, shareable plans, and an empathetic experience for every stage of birth preparation.",
     image: {
-      src: new URL("../../assets/images/birth-your-way.png", import.meta.url).href,
+      src: birthYourWayImg,
       alt: "Birth Your Way birth plan generator placeholder",
     },
     tags: [
@@ -55,7 +59,7 @@ const projects: Project[] = [
     description:
       "A dystopian spin on Hangman—each wrong guess wipes out a programming language, inching humanity toward an assembly-only future. Includes an interactive keyboard, language lore, and immersive animations.",
     image: {
-      src: new URL("../../assets/images/lastlang.png", import.meta.url).href,
+      src: lastLangImg,
       alt: "Screenshot from The Last High-Level Language game",
     },
     tags: [
@@ -84,7 +88,7 @@ const projects: Project[] = [
     description:
       "A quick-hit dice game built to hone state management in React. Features animated rolls, streak tracking, celebratory confetti, and a fully responsive interface for desktop and mobile.",
     image: {
-      src: new URL("../../assets/images/tenzies.png", import.meta.url).href,
+      src: tenziesImg,
       alt: "Tenzies dice game interface",
     },
     tags: [
@@ -109,7 +113,7 @@ const projects: Project[] = [
     description:
       "A Spring Boot service that aggregates Visual Crossing weather data with Redis caching to deliver fast, reliable forecasts. Features clean architecture, Terraform-managed AWS infrastructure, and automated CI/CD.",
     image: {
-      src: new URL("../../assets/images/weather-bridge.jpg", import.meta.url).href,
+      src: weatherBridgeImg,
       alt: "WeatherBridge API dashboard placeholder",
     },
     tags: [

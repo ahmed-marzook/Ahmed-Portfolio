@@ -1,29 +1,37 @@
+import awsIcon from "../../assets/images/tech-stack-icons/AWS.svg";
+import azureIcon from "../../assets/images/tech-stack-icons/Azure.svg";
+import dockerIcon from "../../assets/images/tech-stack-icons/Docker.svg";
+import hashicorpTerraformIcon from "../../assets/images/tech-stack-icons/HashiCorp-Terraform.svg";
+import javaIcon from "../../assets/images/tech-stack-icons/Java.svg";
+import javascriptIcon from "../../assets/images/tech-stack-icons/JavaScript.svg";
+import mongodbIcon from "../../assets/images/tech-stack-icons/MongoDB.svg";
+import nodeIcon from "../../assets/images/tech-stack-icons/Node.js.svg";
+import npmIcon from "../../assets/images/tech-stack-icons/NPM.svg";
+import postgresIcon from "../../assets/images/tech-stack-icons/PostgresSQL.svg";
+import pythonIcon from "../../assets/images/tech-stack-icons/Python.svg";
+import reactIcon from "../../assets/images/tech-stack-icons/React.svg";
+import redisIcon from "../../assets/images/tech-stack-icons/Redis.svg";
+import springIcon from "../../assets/images/tech-stack-icons/Spring.svg";
+import typescriptIcon from "../../assets/images/tech-stack-icons/TypeScript.svg";
+import viteIcon from "../../assets/images/tech-stack-icons/Vite.svg";
+
 const techIcons = {
-  aws: new URL("../../assets/images/tech-stack-icons/AWS.svg", import.meta.url).href,
-  azure: new URL("../../assets/images/tech-stack-icons/Azure.svg", import.meta.url).href,
-  docker: new URL("../../assets/images/tech-stack-icons/Docker.svg", import.meta.url).href,
-  hashicorpTerraform: new URL(
-    "../../assets/images/tech-stack-icons/HashiCorp-Terraform.svg",
-    import.meta.url
-  ).href,
-  java: new URL("../../assets/images/tech-stack-icons/Java.svg", import.meta.url).href,
-  javascript: new URL(
-    "../../assets/images/tech-stack-icons/JavaScript.svg",
-    import.meta.url
-  ).href,
-  mongodb: new URL("../../assets/images/tech-stack-icons/MongoDB.svg", import.meta.url).href,
-  node: new URL("../../assets/images/tech-stack-icons/Node.js.svg", import.meta.url).href,
-  npm: new URL("../../assets/images/tech-stack-icons/NPM.svg", import.meta.url).href,
-  postgres: new URL("../../assets/images/tech-stack-icons/PostgresSQL.svg", import.meta.url).href,
-  python: new URL("../../assets/images/tech-stack-icons/Python.svg", import.meta.url).href,
-  react: new URL("../../assets/images/tech-stack-icons/React.svg", import.meta.url).href,
-  redis: new URL("../../assets/images/tech-stack-icons/Redis.svg", import.meta.url).href,
-  spring: new URL("../../assets/images/tech-stack-icons/Spring.svg", import.meta.url).href,
-  typescript: new URL(
-    "../../assets/images/tech-stack-icons/TypeScript.svg",
-    import.meta.url
-  ).href,
-  vite: new URL("../../assets/images/tech-stack-icons/Vite.svg", import.meta.url).href,
+  aws: awsIcon,
+  azure: azureIcon,
+  docker: dockerIcon,
+  hashicorpTerraform: hashicorpTerraformIcon,
+  java: javaIcon,
+  javascript: javascriptIcon,
+  mongodb: mongodbIcon,
+  node: nodeIcon,
+  npm: npmIcon,
+  postgres: postgresIcon,
+  python: pythonIcon,
+  react: reactIcon,
+  redis: redisIcon,
+  spring: springIcon,
+  typescript: typescriptIcon,
+  vite: viteIcon,
 } as const;
 
 export type TechIconKey = keyof typeof techIcons;
