@@ -62,7 +62,13 @@ const LandingHero = () => (
           style={{ "--reveal-delay": "0.15s" } as CSSProperties}
         >
           <div className={styles.heroProfile}>
-            <img src={heroPortrait} alt="Portrait of Ahmed Marzook" loading="eager" />
+            <img
+              src={heroPortrait.src}
+              alt="Portrait of Ahmed Marzook"
+              loading="eager"
+              width={heroPortrait.width}
+              height={heroPortrait.height}
+            />
           </div>
         </div>
       </div>

@@ -16,22 +16,22 @@ import typescriptIcon from "../../assets/images/tech-stack-icons/TypeScript.svg"
 import viteIcon from "../../assets/images/tech-stack-icons/Vite.svg";
 
 const techIcons = {
-  aws: awsIcon,
-  azure: azureIcon,
-  docker: dockerIcon,
-  hashicorpTerraform: hashicorpTerraformIcon,
-  java: javaIcon,
-  javascript: javascriptIcon,
-  mongodb: mongodbIcon,
-  node: nodeIcon,
-  npm: npmIcon,
-  postgres: postgresIcon,
-  python: pythonIcon,
-  react: reactIcon,
-  redis: redisIcon,
-  spring: springIcon,
-  typescript: typescriptIcon,
-  vite: viteIcon,
+  aws: awsIcon.src,
+  azure: azureIcon.src,
+  docker: dockerIcon.src,
+  hashicorpTerraform: hashicorpTerraformIcon.src,
+  java: javaIcon.src,
+  javascript: javascriptIcon.src,
+  mongodb: mongodbIcon.src,
+  node: nodeIcon.src,
+  npm: npmIcon.src,
+  postgres: postgresIcon.src,
+  python: pythonIcon.src,
+  react: reactIcon.src,
+  redis: redisIcon.src,
+  spring: springIcon.src,
+  typescript: typescriptIcon.src,
+  vite: viteIcon.src,
 } as const;
 
 export type TechIconKey = keyof typeof techIcons;
