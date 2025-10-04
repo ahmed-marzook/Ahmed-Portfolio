@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import styles from "./LandingHero.module.css";
-
-const heroPortrait = new URL("../../assets/images/me.png", import.meta.url).href;
+import heroPortrait from "../../assets/images/me.png";
 
 const heroStats = [
   {
