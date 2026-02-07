@@ -1,6 +1,7 @@
 import type { CSSProperties } from "react";
 import birthYourWayImg from "../../assets/images/birth-your-way.png";
 import lastLangImg from "../../assets/images/lastlang.png";
+import lifevaultImg from "../../assets/images/lifevault-screenshot.png";
 import tenziesImg from "../../assets/images/tenzies.png";
 import weatherBridgeImg from "../../assets/images/weather-bridge.jpg";
 import techIcons from "./techIcons";
@@ -55,6 +56,30 @@ const projects: Project[] = [
       { label: "Visit site", href: "https://www.birthplan.co.uk/" },
     ],
     reveal: {},
+  },
+  {
+    title: "LifeVault",
+    description:
+      "A local file organiser that helps you categorise and manage your personal documents securely on your own machine. Features category management, file organisation, bookmarks, and encrypted local storage.",
+    image: {
+      src: lifevaultImg.src,
+      alt: "LifeVault local file organiser dashboard",
+      width: lifevaultImg.width,
+      height: lifevaultImg.height,
+    },
+    tags: [
+      { label: "Electron" },
+      { label: "React", iconKey: "react" },
+      { label: "TypeScript", iconKey: "typescript" },
+      { label: "Tailwind" },
+    ],
+    links: [
+      { label: "Visit site", href: "https://lifevault.sabrlabs.co.uk/" },
+    ],
+    reveal: {
+      direction: "right",
+      delay: "0.05s",
+    },
   },
   {
     title: "The Last High-Level Language",
