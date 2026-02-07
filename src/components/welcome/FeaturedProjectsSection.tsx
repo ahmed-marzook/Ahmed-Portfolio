@@ -68,10 +68,10 @@ const projects: Project[] = [
       height: lifevaultImg.height,
     },
     tags: [
-      { label: "Electron" },
+      { label: "Electron", iconKey: "electron" },
       { label: "React", iconKey: "react" },
       { label: "TypeScript", iconKey: "typescript" },
-      { label: "Tailwind" },
+      { label: "Tailwind", iconKey: "tailwind" },
     ],
     links: [
       { label: "Visit site", href: "https://lifevault.sabrlabs.co.uk/" },
