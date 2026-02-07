@@ -1,6 +1,7 @@
 import awsIcon from "../../assets/images/tech-stack-icons/AWS.svg";
 import azureIcon from "../../assets/images/tech-stack-icons/Azure.svg";
 import dockerIcon from "../../assets/images/tech-stack-icons/Docker.svg";
+import electronIcon from "../../assets/images/tech-stack-icons/Electron.svg";
 import hashicorpTerraformIcon from "../../assets/images/tech-stack-icons/HashiCorp-Terraform.svg";
 import javaIcon from "../../assets/images/tech-stack-icons/Java.svg";
 import javascriptIcon from "../../assets/images/tech-stack-icons/JavaScript.svg";
@@ -12,6 +13,7 @@ import pythonIcon from "../../assets/images/tech-stack-icons/Python.svg";
 import reactIcon from "../../assets/images/tech-stack-icons/React.svg";
 import redisIcon from "../../assets/images/tech-stack-icons/Redis.svg";
 import springIcon from "../../assets/images/tech-stack-icons/Spring.svg";
+import tailwindIcon from "../../assets/images/tech-stack-icons/Tailwind-CSS.svg";
 import typescriptIcon from "../../assets/images/tech-stack-icons/TypeScript.svg";
 import viteIcon from "../../assets/images/tech-stack-icons/Vite.svg";
 
@@ -19,6 +21,7 @@ const techIcons = {
   aws: awsIcon.src,
   azure: azureIcon.src,
   docker: dockerIcon.src,
+  electron: electronIcon.src,
   hashicorpTerraform: hashicorpTerraformIcon.src,
   java: javaIcon.src,
   javascript: javascriptIcon.src,
@@ -30,6 +33,7 @@ const techIcons = {
   react: reactIcon.src,
   redis: redisIcon.src,
   spring: springIcon.src,
+  tailwind: tailwindIcon.src,
   typescript: typescriptIcon.src,
   vite: viteIcon.src,
 } as const;
